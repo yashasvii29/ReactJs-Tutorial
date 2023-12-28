@@ -1,20 +1,21 @@
 import React from 'react'
 import Person from './Components/Person'
-import Yashasvi from './Components/Yashu'
+import Yashu from './Components/Yashu'
+
 // rafce and rfce
 
 const App = () => {
   return (
     <div>
         <div>
-          <Person/>
-          <Person/>
-          <Yashasvi/>
-          <Person/>
-          <Person/>
+          <Person name="yashasvi" age="20" favColor="violet"/>
+          <Person name="tanya" age="21" favColor="pink"/>
+          <Person name="ritika" age="22" favColor="yellow"/>
+          <Person name="dimpy" age="23" favColor="green"/>
+          <Yashu/>
 
         </div>
-        
+        {/*Person fun ko call kr rhe hai and usme(person fun m) 3 properties means3 attributes bhej rhe hai toh person fun m  parentheses m props likenge and fun ke andar props.attribute_name likhenge in{props.attribute_name} to execute that attribute and {} se pehle ya {} ke baad html tag ke anadr kuch bhi likh sakte hai*/}
         
          
     </div>
@@ -26,3 +27,5 @@ export default App
 // App function se 2 component return jr rhe hai
 // 1 component ko kitni bhi baar use kr sakte h
 // components ko reuse kr sakte h
+
+
