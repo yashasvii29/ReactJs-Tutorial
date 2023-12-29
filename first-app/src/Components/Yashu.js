@@ -12,6 +12,9 @@ const Yashasvi = () => {
       <h1>Hi, I am inside this yashu component</h1>
       <h2>{arr1[emoji]}
       {
+        emoji === 3 ? <img src="https://images.unsplash.com/photo-1577083753695-e010191bacb5?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8ZGl3YWxpfGVufDB8fDB8fHww" alt="" /> : "Wrong answer"
+      }
+      {
         todos.map((item,index)=>{
           return <li key={index}> My task is {item} & position is {index}</li>
         })

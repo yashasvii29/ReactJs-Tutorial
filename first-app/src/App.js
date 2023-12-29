@@ -29,3 +29,7 @@ export default App
 // components ko reuse kr sakte h
 
 
+
+// hum react m event listeners ka use kr sakte hai
+// div pr click event lagaya hai or usme fun assign kiya hai ..jab hum uss div pr click kreneg toh handleclick fun call hoga and execute hoga
+// handleclick fun ko component ke andar hi likhenge
