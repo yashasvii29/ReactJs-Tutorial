@@ -8,6 +8,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <App />
+    {/* index.js file se ek ul return kr rhe hai jo app component ne return ki hai means app fun ne */}
   </React.StrictMode>
 );
 
