@@ -29,30 +29,39 @@ const TodoApp = () => {
         }
 
     ]
-
+     // newTodo ko todos array m add krna hai means todos array m push krna hai toh uske liye  useState hook ka use krenge todos array m newtodo ko add krne ke liye means array m change krne ke liye....
     let [todos, setTodos] = useState(dummyArray);
  // task 1 => to add a new todo in a todolist so we will create a form to add a new todo in a todolist
-    const addTodo=(todo)=>{
+    const addTodo=(todo)=>{ // addTodo fun create kiya hai and usme callback fun assign kiya hai
+        // todos array m newTodo ko add krne ke liye we will use spread operator means (3 dots and uss array ka name jisme add krna hai , uska name jise add krna hai)
+        // todos array m newTodo ko add krna hai means todos variable ki value ko change krna hai toh setTodos fun ka use krenge to change the value of a var and setTodos fun m spread operator pass krenge
+        // console.log("addTodofun called");
+        // y fun tab execute hoga jab form component m addTodo fun call hoga and todo m newTodo object ko bhejenge as a argument
         setTodos([...todos,todo])
     }
+    // form ke andar addTodo fun ko bhejna hai toh props means attributes ka use krenge ... key(attribute) and value dono ka name same rakhenge
     // task 2=> to delete a todo from a todolist  (using filter method)
     // const deleteTodo = (id)=>{
     //     const newTodo =  todos.filter((todo)=>todo.id !== id);
     //     setTodos(newTodo);
     // }
     // both are correct delete krne ke liye kisi bhi logic ka use kr sakte hai simple ya prevstate ka
-    const deleteTodo = (id)=>{
+    const deleteTodo = (id)=>{ // isme uss todo ki id aayegi jise delete krna h from todo component
         // const newTodo =  todos.filter((todo)=>todo.id !== id);
-        setTodos((prevState)=>{
+        setTodos((prevState)=>{ // prevstate m todos array hogi
             return prevState.filter((todo)=>todo.id !== id);
         });
         // prevState means jo pehle tha ...jab hum  prevState ka use krte hai toh new var initialise krne ki need nhi hoti
+        // deleteTodo fun ko todo component m bhejna h toh pehle todolist component m bhejenge with the help of props means attributes then todolist se todo component m
     }
     // task3 => to check or uncheck a todo in a todo list
+    // checkTodo and deleteTodo dono ka process same h
     const checkTodo = (id)=>{
+
         setTodos((prevState)=>{
-            return prevState.map((item)=> item.id === id ? {...item,checked: !item.checked} : item)
-            // toggling ho rhi hai (means toggle kr rhe h checked ko unchecked and unchecked ko checked kr rhe h)
+            return prevState.map((item)=> item.id === id ? {...item, checked:!item.checked} : item)
+            // toggling ho rhi hai (means toggle kr rhe h checked ko unchecked and unchecked ko checked kr rhe h)....false ko true and true ko false kr rhe h
+            // checkTodo fun ko todo component m bhejna h toh pehle todolist component m bhejenge with the help of props means attributes then todolist se todo component m
         })
     }
   return (
@@ -73,7 +82,7 @@ const TodoApp = () => {
 export default TodoApp
 
 // // task 1 => to add a new todo in a todolist so we will create a form to add a new todo in a todolist
-// react icons ko apne project m use krne ke liye pehle install krenge then uss icon ko import krenge and then use krenge
+
 
 // task 2=> to delete a todo from a todolist  (using filter method)
 // filter method returns a new array (array m vahi elements hote hai jo true hai) 
