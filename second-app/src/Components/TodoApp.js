@@ -1,34 +1,38 @@
-import React, { useState } from 'react'
+import React, { useState , useEffect} from 'react'
 import TodoList from './TodoList'
 import Form from './Form'
-import {v4 as uuid} from 'uuid';
+// import {v4 as uuid} from 'uuid';
 
 const TodoApp = () => {
+    // ab hum direct dummy array m data assign nhi krenge...hum localStorage se todos array ko get krenge then dummyArray m assign kr denge(agar todos array localStorage m available nhi hai toh empty array ko assign kr denge in dummyArray)
+    let dummyArray = JSON.parse(window.localStorage.getItem('todos') || "[]")
+    // jab hum object ke sath kaam krenge we will write json.parse()
+    // localStorage ke sath kaam krne ke liye we will write window.localStorage
 
-    let dummyArray = [
-        {
-            // unique id dene ke liye uuid method ka use krenge so sabse pehle uuid module ko install krenge...npm i uuid then import the uuid module in the file
-            id:uuid(),
-            todo:"Do code",
-            checked:false
-        },
-        {
-            id:uuid(),
-            todo:"create pull request",
-            checked:false
-        },
-        {
-            id:uuid(),
-            todo:"Push your code",
-            checked:false
-        },
-        {
-            id:uuid(),
-            todo:"Commit your code",
-            checked:false
-        }
+    // let dummyArray = [
+    //     {
+    //         // unique id dene ke liye uuid method ka use krenge so sabse pehle uuid module ko install krenge...npm i uuid then import the uuid module in the file
+    //         id:uuid(),
+    //         todo:"Do code",
+    //         checked:false
+    //     },
+    //     {
+    //         id:uuid(),
+    //         todo:"create pull request",
+    //         checked:false
+    //     },
+    //     {
+    //         id:uuid(),
+    //         todo:"Push your code",
+    //         checked:false
+    //     },
+    //     {
+    //         id:uuid(),
+    //         todo:"Commit your code",
+    //         checked:false
+    //     }
 
-    ]
+    // ]
      // newTodo ko todos array m add krna hai means todos array m push krna hai toh uske liye  useState hook ka use krenge todos array m newtodo ko add krne ke liye means array m change krne ke liye....
     let [todos, setTodos] = useState(dummyArray);
  // task 1 => to add a new todo in a todolist so we will create a form to add a new todo in a todolist
@@ -39,6 +43,13 @@ const TodoApp = () => {
         // y fun tab execute hoga jab form component m addTodo fun call hoga and todo m newTodo object ko bhejenge as a argument
         setTodos([...todos,todo])
     }
+    console.log("inside this app component ");
+    useEffect(()=>{
+        // console.log("inside useEffect hook");
+        // localstorage m todos array ko set kr rhe hai
+        localStorage.setItem('todos',JSON.stringify(todos));
+    },[todos])
+
     // form ke andar addTodo fun ko bhejna hai toh props means attributes ka use krenge ... key(attribute) and value dono ka name same rakhenge
     // task 2=> to delete a todo from a todolist  (using filter method)
     // const deleteTodo = (id)=>{

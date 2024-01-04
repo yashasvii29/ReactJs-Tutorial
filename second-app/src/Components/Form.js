@@ -5,15 +5,25 @@ import {v4 as uuid} from 'uuid';
 const Form = (props) => {
     
   let [input , setInput] =useState('');
+  let [isValid , setIsvalid] =useState(true);
    function inputChangeHandler(e){ // jab hum input ko change krenge toh onChange event chalega and y fun call hoga toh fun ke andar event ko catch krenge means event ko pass krenge as a argument in (e) iss fun m e(means event object) ko pass krenge as a argument...means event ko catch krenge
     // console.log(e.target.value);
     setInput(e.target.value);
     // event ke andar jo target hai uski value assign ho jayegi in input variable
+    if(input.trim().length>0){
+      // trim() white spaces ko remove kr deta hai...toh white spcaes ko remove krne baad if input ki length>0 hai toh isValid var m true assign kr denge
+      setIsvalid(true);
+    }
    }
 
    function formSubmitHandler(e){
     // function ke nadra event ko catch krenge means e ko pass krenge as a argument in (e) 
     e.preventDefault(); //isse form submit krne ke baad page refresh nhi hoga(means form bydefault submit hoga) ... preventing from getting submitted
+    if(input.trim().length===0){
+      setIsvalid(false);
+      return ;
+    }
+    
     const newTodo = { //form submit hote hi ek newTodo create hoga and new todo ko todos array m add kr denge addTodo fun ki help se
       id:uuid(),
       todo: input ,
