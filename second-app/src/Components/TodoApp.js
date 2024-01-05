@@ -45,7 +45,7 @@ const TodoApp = () => {
     }
     console.log("inside this app component ");
     useEffect(()=>{
-        // console.log("inside useEffect hook");
+        console.log("inside useEffect hook");
         // localstorage m todos array ko set kr rhe hai
         localStorage.setItem('todos',JSON.stringify(todos));
     },[todos])

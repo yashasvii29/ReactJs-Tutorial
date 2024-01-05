@@ -4,7 +4,8 @@ import GithubUser from './Component/GithubUser'
 const App = () => {
   return (
     <div>
-      <GithubUser/>
+      <h1>Github profiles</h1>
+      <GithubUser username="yashasvii29"/>
     </div>
   )
 }
